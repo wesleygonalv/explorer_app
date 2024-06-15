@@ -1,0 +1,20 @@
+{
+    "title": "Explorer App",
+    "company_list_view": {
+      "title": "Empresas",
+      "description": "Selecione uma empresa para visualizar seus ativos"
+    },
+    "explorer_view": {
+      "title": "{companyName} Ativos",
+      "widgets": {
+        "search_input": {
+          "label": "Busque por ativos ou locais"
+        },
+        "buttons": {
+          "energy": "Sensor de energia",
+          "critical": "Crítico"
+        }
+      }
+    }
+  }
+  

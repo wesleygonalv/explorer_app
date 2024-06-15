@@ -1,0 +1,36 @@
+name: explorer_app
+description: "A new Flutter project."
+publish_to: "none"
+version: 0.1.0
+
+environment:
+  sdk: ">=3.3.4 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_screenutil: ^5.9.3
+  get: ^4.6.6
+  intl: ^0.19.0
+  jiffy: ^6.3.1
+  logger: ^2.3.0
+  marquee: ^2.2.3
+  shared_preferences: ^2.2.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/icons/
+    - assets/fonts/
+    - lang/
+  fonts:
+    - family: roboto
+      fonts:
+        - asset: assets/fonts/roboto_light.ttf
+        - asset: assets/fonts/roboto_bold.ttf
+          weight: 700

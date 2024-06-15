@@ -1,0 +1,19 @@
+{
+  "title": "Explorer App",
+  "company_list_view": {
+    "title": "Companies",
+    "description": "Select your company to see your assets"
+  },
+  "explorer_view": {
+    "title": "{companyName} Assets",
+    "widgets": {
+      "search_input": {
+        "label": "Search assets or location"
+      },
+      "buttons": {
+        "energy": "Power sensor",
+        "critical": "Critical"
+      }
+    }
+  }
+}
