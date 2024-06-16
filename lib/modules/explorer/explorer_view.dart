@@ -10,7 +10,9 @@ class ExplorerView extends StatelessWidget {
     final companyName = Get.parameters['companyName'] as String;
     return Scaffold(
       appBar: AppBar(
-        title: Text('explorer_view.title'.i18n({'companyName': companyName})),
+        title: Text(
+          'explorer_view.title'.i18n({'companyName': companyName}),
+        ),
       ),
       body: Container(
         child: Text('ok'),

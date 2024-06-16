@@ -2,7 +2,6 @@ import 'package:explorer_app/core/modules/translation/translation_provider.dart'
 import 'package:explorer_app/core/modules/translation/translation_service.dart';
 import 'package:explorer_app/modules/companies/companies_module.dart';
 import 'package:explorer_app/modules/explorer/explorer_module.dart';
-import 'package:explorer_app/modules/explorer/explorer_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -29,6 +28,17 @@ class AppModule extends StatelessWidget {
           ],
           theme: ThemeData(
             fontFamily: 'roboto',
+            appBarTheme: AppBarTheme(
+              backgroundColor: Colors.blue,
+              iconTheme: const IconThemeData(
+                color: Colors.white,
+              ),
+              centerTitle: true,
+              titleTextStyle: TextStyle(
+                fontSize: 20.sp,
+                color: Colors.white,
+              ),
+            ),
           ),
           getPages: [
             ExplorerModule.page,
