@@ -1,3 +1,4 @@
+import 'package:explorer_app/modules/explorer/explorer_controller.dart';
 import 'package:explorer_app/modules/explorer/explorer_view.dart';
 import 'package:get/get.dart';
 
@@ -8,10 +9,11 @@ class ExplorerModule {
 
   static GetPage get page => GetPage(
         name: '/explorer',
-        page: () => const ExplorerView(),
+        page: () {
+          Get.put(ExplorerController());
+
+          return const ExplorerView();
+        },
         transition: Transition.leftToRightWithFade,
       );
-
-  static init() {
-  }
 }

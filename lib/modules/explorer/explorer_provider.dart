@@ -12,7 +12,7 @@ class ExplorerProvider extends AppConnect<TreeObjectModel> {
   /// * **required** String companyId
   /// ### Returns:
   /// * TreeObjectModel instance
-  Future<TreeObjectModel> getAssetsBy({required String companyId}) =>
+  Future<List<TreeObjectModel>> getAssetsBy({required String companyId}) =>
       get('/companies/$companyId/assets').then((value) => value.body);
 
   /// Get all objects in the location tree by company id
@@ -21,6 +21,6 @@ class ExplorerProvider extends AppConnect<TreeObjectModel> {
   /// * **required** String companyId
   /// ### Returns:
   /// * TreeObjectModel instance
-  Future<TreeObjectModel> getLocationsBy({required String companyId}) =>
-      get('/companies/$companyId/assets').then((value) => value.body);
+  Future<List<TreeObjectModel>> getLocationsBy({required String companyId}) =>
+      get('/companies/$companyId/locations').then((value) => value.body);
 }

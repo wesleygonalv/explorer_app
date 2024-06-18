@@ -6,7 +6,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class AssetItemWidget extends StatefulWidget {
   final String name;
   final AppIcon iconPrepend;
-  final IconData iconAppend;
+  final IconData? iconAppend;
+  final Color? iconAppendColor;
   final Function()? onTap;
   final Widget? expandedWidget;
 
@@ -14,9 +15,10 @@ class AssetItemWidget extends StatefulWidget {
     super.key,
     required this.name,
     required this.iconPrepend,
-    required this.iconAppend,
-    required this.onTap,
-    required this.expandedWidget,
+    this.iconAppend,
+    this.iconAppendColor,
+    this.onTap,
+    this.expandedWidget,
   });
 
   @override
@@ -25,42 +27,58 @@ class AssetItemWidget extends StatefulWidget {
 
 class _AssetItemWidgetState extends State<AssetItemWidget> {
   bool expandFlag = false;
-  bool get _canExpandAction => widget.expandedWidget != null;
 
-  @override
-  void initState() {
-    super.initState();
-  }
+  bool get _canExpandAction => widget.expandedWidget != null;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
         if (_canExpandAction) {
-          setState(() => expandFlag = !expandFlag);
+          if (mounted) {
+            setState(() => expandFlag = !expandFlag);
+          }
+          widget.onTap?.call();
         }
-        widget.onTap?.call();
       },
-      child: Row(
+      child: Column(
         children: [
-          Column(
+          Row(
             children: [
-              if (_canExpandAction)
-                Icon(
-                  expandFlag
-                      ? Icons.arrow_drop_down_sharp
-                      : Icons.arrow_right_sharp,
-                ),
+              SizedBox(
+                width: 15.w,
+                child: _canExpandAction
+                    ? Icon(
+                        expandFlag
+                            ? Icons.arrow_drop_down_sharp
+                            : Icons.arrow_right_sharp,
+                        color: Colors.grey,
+                      )
+                    : null,
+              ),
               widget.iconPrepend,
-              Text(widget.name),
-              Icon(widget.iconAppend),
+              Flexible(
+                child: Text(
+                  widget.name,
+                ),
+              ),
+              SizedBox(
+                width: 15.w,
+                child: widget.iconAppend == null
+                    ? null
+                    : Icon(
+                        widget.iconAppend,
+                        color: widget.iconAppendColor,
+                      ),
+              )
             ],
           ),
           if (expandFlag)
             Padding(
-              padding: EdgeInsets.only(right: 0.1.sw),
+              padding: EdgeInsets.only(left: 0.05.sw),
               child: widget.expandedWidget,
-            )
+            ),
+          SizedBox(height: 2.h),
         ],
       ),
     );

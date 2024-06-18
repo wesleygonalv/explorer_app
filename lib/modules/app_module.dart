@@ -13,9 +13,6 @@ class AppModule extends StatelessWidget {
   Widget build(BuildContext context) {
     // Custom translation
     TranslationService translation = Get.put(TranslationService());
-    // Init modules
-    CompaniesModule.init();
-    ExplorerModule.init();
 
     return ScreenUtilInit(
       minTextAdapt: true,
@@ -41,8 +38,8 @@ class AppModule extends StatelessWidget {
             ),
           ),
           getPages: [
-            ExplorerModule.page,
             CompaniesModule.page,
+            ExplorerModule.page,
           ],
         );
       },

@@ -7,10 +7,12 @@ class CompaniesModule {
   CompaniesModule._();
   factory CompaniesModule() => _instance;
 
-  static GetPage get page =>
-      GetPage(name: '/', page: () => const CompaniesListView());
+  static GetPage get page => GetPage(
+      name: '/',
+      page: () {
+        // Init controllers and providers before view
+        Get.lazyPut(() => CompaniesController());
 
-  static init() {
-    Get.lazyPut(() => CompaniesController());
-  }
+        return const CompaniesListView();
+      });
 }

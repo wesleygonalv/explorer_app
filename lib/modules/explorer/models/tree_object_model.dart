@@ -33,4 +33,8 @@ class TreeObjectModel {
       status: data.getString('status'),
     );
   }
+
+  bool get isRoot {
+    return parentId == null;
+  }
 }

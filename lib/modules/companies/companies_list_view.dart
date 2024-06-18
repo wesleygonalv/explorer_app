@@ -10,7 +10,7 @@ class CompaniesListView extends GetView<CompaniesController> {
 
   @override
   Widget build(BuildContext context) {
-    const Key centerKey = ValueKey<String>('bottom-sliver-list');
+    const Key listKey = ValueKey<String>('companies-list');
     return Scaffold(
       extendBody: true,
       appBar: AppBar(
@@ -22,10 +22,10 @@ class CompaniesListView extends GetView<CompaniesController> {
         padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 40).r,
         child: controller.obx(
           (state) => CustomScrollView(
-            center: centerKey,
+            center: listKey,
             slivers: <Widget>[
               SliverGrid(
-                key: centerKey,
+                key: listKey,
                 delegate: SliverChildListDelegate(
                   state!
                       .map(
